@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic-Tac-Toe</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body class="all">
+        <header>
+            <i class="fas fa-sun"></i>
+            <label class="switch">
+                <input 
+                    type="checkbox" 
+                    onclick='{
+                        let on = true;
+
+                        if (on && !document.querySelector(".all").classList.contains("off")) {
+                            on = false;
+                            document.querySelector(".all").classList.add("off");
+                        } else {
+                            document.querySelector(".all").classList.remove("off");
+                        }
+                    }'
+                >
+                <span class="slider round"></span>
+            </label>
+            <i class="fas fa-moon"></i>
+        </header>
+        <div class="wrapper">
+            <div class="left">
+                <div class="title">
+                    <h1>Let's play</h1>
+                    <br>
+                    <h1>Tic-Tac-Toe!</h1>
+                </div>
+                <div class="restart_button">Start a New Game</div>
+            </div>
+            <div class="right">
+                <div class="game">
+                    <div class="header">
+                        <div class="player-x">
+                            <span>Player X</span>
+                        </div>
+                        <div class="player-o">
+                            <span>Player O</span>
+                        </div>
+                    </div>
+                    <div class="board">
+                        <div class="board_tile" data-index="0"></div>
+                        <div class="board_tile" data-index="1"></div>
+                        <div class="board_tile" data-index="2"></div>
+                        <div class="board_tile" data-index="3"></div>
+                        <div class="board_tile" data-index="4"></div>
+                        <div class="board_tile" data-index="5"></div>
+                        <div class="board_tile" data-index="6"></div>
+                        <div class="board_tile" data-index="7"></div>
+                        <div class="board_tile" data-index="8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function switchMode() {
+                let on = true;
+
+                if (on && !document.querySelector(".all").classList.contains("off")) {
+                    on = false;
+                    document.querySelector(".all").classList.add("off");
+                } else {
+                    document.querySelector(".all").classList.remove("off");
+                }
+            }
+        </script>
+        <script src="js/main.js" type="module"></script>
+    </body>
+</html>

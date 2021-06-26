@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #4c6986;
+}
+
+body.off {
+    background-color: black;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4.8rem;
+    position: relative;
+    height: 101px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 10%), 0 2px 2px rgb(0 0 0 / 6%), 0 0 2px rgb(0 0 0 / 7%);
+    z-index: 10;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.title {
+    max-width: 31.25rem;
+}
+
+.wrapper {
+    height: 100vh;
+    max-width: 90rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem;
+}
+
+h1 {
+    font-size: 4.375rem;
+    font-weight: bold;
+}
+
+.restart_button {
+    width: 10.9375rem;
+    height: 3.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.125rem solid #4c6986;
+    border-radius: 3.125rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: all .2s ease;
+}
+
+.restart_button:hover {
+    background-color: #4c6986;
+    color: white;
+}
+
+.game {
+    width: 31.25rem;
+    height: 31.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    color: #9a9a9a;
+    font-size: 1.5rem;
+}
+
+.fas {
+    margin: 10px;
+}
+
+.header .player-x {
+    flex: 1;
+    border-bottom: 0.3125rem solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.player-x.active {
+    color: #42bed7;
+    border-color: #42bed7;
+}
+
+.header .player-o {
+    flex: 1;
+    border-bottom: 0.3125rem solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.player-o.active {
+    color: #aa00ff;
+    border-color: #aa00ff;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0rem;
+    flex-grow: 1;
+    padding: 0.625rem;
+}
+
+.board_tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    cursor: pointer;
+    background-color: white;
+}
+
+.board_tile:not(:nth-child(3n)) {
+    border-right: 0.1875rem solid rgba(137, 163, 189, 0.58);
+}
+
+.board_tile:not(:nth-last-child(-n + 3)) {
+    border-bottom: 0.1875rem solid rgba(137, 163, 189, 0.58);
+}
+
+.board_tile:hover {
+    background: #eee;
+}
+
+.tile-x {
+    color: #42bed7;
+}
+
+.tile-o {
+    color: #aa00ff;
+}
+
+.winner span {
+    color: #23ce6b;
+}
+
+body.off .restart_button {
+    border-color: white;
+}
+
+body.off .restart_button:hover {
+    background-color: white;
+    color: black;
+}
+
+body.off .board_tile {
+    background-color: black;
+}
+
+@media only screen and (max-width: 75rem) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .title {
+        margin: 0 0 50px 0;
+    }
+}
